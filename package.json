@@ -19,11 +19,11 @@
     "commands": [
       {
         "command": "searchdocszhCN.searchSO",
-        "title": "Search Stack Overflow"
+        "title": "Search SO"
       },
       {
         "command": "searchdocszhCN.searchMDN",
-        "title": "Search MDN"
+        "title": "Search MDN-zh"
       }
     ],
     "configuration": {
