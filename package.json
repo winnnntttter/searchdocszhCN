@@ -7,6 +7,9 @@
   "engines": {
     "vscode": "^1.41.0"
   },
+  "repository": {
+		"git": "https://github.com/winnnntttter/searchdocszhCN"
+	},
   "categories": [
     "Other"
   ],
