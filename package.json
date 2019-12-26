@@ -3,7 +3,7 @@
   "displayName": "searchdocszhCN",
   "description": "A simple copy of searchdocs, just replace en-US with zh-CN. Thanks to roblourens and his/her searchdocs",
   "publisher": "winnnntttter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.41.0"
   },
@@ -12,7 +12,10 @@
   ],
   "activationEvents": [
     "onCommand:searchdocszhCN.searchSO",
-    "onCommand:searchdocszhCN.searchMDN"
+    "onCommand:searchdocszhCN.searchMDN",
+    "onCommand:searchdocszhCN.searchGoogle",
+    "onCommand:searchdocszhCN.searchBaidu",
+    "onCommand:searchdocszhCN.searchCIU"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -24,6 +27,18 @@
       {
         "command": "searchdocszhCN.searchMDN",
         "title": "Search MDN-zh"
+      },
+      {
+        "command": "searchdocszhCN.searchGoogle",
+        "title": "Search Google"
+      },
+      {
+        "command": "searchdocszhCN.searchBaidu",
+        "title": "Search Baidu"
+      },
+      {
+        "command": "searchdocszhCN.searchCIU",
+        "title": "Search caniuse"
       }
     ],
     "configuration": {
@@ -48,6 +63,24 @@
         "command": "searchdocszhCN.searchMDN",
         "key": "ctrl+alt+shift+m",
         "mac": "cmd+alt+shift+m",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "searchdocszhCN.searchGoogle",
+        "key": "ctrl+alt+shift+g",
+        "mac": "cmd+alt+shift+g",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "searchdocszhCN.searchBaidu",
+        "key": "ctrl+alt+shift+b",
+        "mac": "cmd+alt+shift+b",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "searchdocszhCN.searchCIU",
+        "key": "ctrl+alt+shift+c",
+        "mac": "cmd+alt+shift+c",
         "when": "editorTextFocus"
       }
     ]

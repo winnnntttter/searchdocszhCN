@@ -15,6 +15,15 @@ function activate(context) {
   vscode.commands.registerCommand("searchdocszhCN.searchMDN", function() {
     getQueryAndSearch("https://developer.mozilla.org/zh-CN/search?q=%s", "MDN");
   });
+  vscode.commands.registerCommand("searchdocszhCN.searchGoogle", function() {
+    getQueryAndSearch("https://www.google.com/search?q=%s", "Google");
+  });
+  vscode.commands.registerCommand("searchdocszhCN.searchBaidu", function() {
+    getQueryAndSearch("https://www.baidu.com/s?wd=%s", "Baidu");
+  });
+  vscode.commands.registerCommand("searchdocszhCN.searchCIU", function() {
+    getQueryAndSearch("https://www.caniuse.com/#search=%s", "caniuse");
+  });
   function getQueryAndSearch(searchUrl, providerName) {
     getQuery(searchUrl, providerName).then(function(searchText) {
       if (searchText) {
@@ -24,7 +33,11 @@ function activate(context) {
   }
   function getQuery(searchUrl, providerName) {
     var editor = vscode.window.activeTextEditor;
-    if (!editor) return Promise.resolve(null);
+    if (!editor) {
+      return vscode.window.showInputBox({ prompt: providerName + ": 请输入" }).then(function(searchText) {
+        return searchText && searchText.trim();
+      });
+    }
     var searchWordUnderCursor = vscode.workspace.getConfiguration("searchdocs")["searchWordUnderCursor"];
     var selection = editor.selection;
     if (searchWordUnderCursor || !selection.isEmpty) {
